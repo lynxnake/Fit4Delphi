@@ -78,8 +78,7 @@ begin
   optionEndIndex := 0;
   matcher := TRegExpr.Create;
   matcher.Expression := optionPattern;
-  matcher.InputString := optionDescriptor;
-  found := matcher.Exec;
+  found := matcher.Exec(optionDescriptor);
   while found do
   begin
     option := TOption.Create;

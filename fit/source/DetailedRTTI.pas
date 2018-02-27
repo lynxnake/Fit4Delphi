@@ -8,8 +8,8 @@ unit DetailedRTTI;
 interface
 
 uses
-  TypInfo,
-  ObjAuto;
+  System.ObjAuto,
+  System.TypInfo;
 
 const
   SHORT_LEN = sizeof(ShortString) - 1;
@@ -65,7 +65,7 @@ var
   Params, Param: PParamInfo;
   returnInfo: PReturnInfo;
 begin
-  header := ObjAuto.GetMethodInfo( Obj, MethodName );
+  header := GetMethodInfo( Obj, MethodName );
   // Check the length is greater than just that of the name
   if Header.Len <= SizeOf(TMethodInfoHeader) - SHORT_LEN + Length(Header.Name) then
   begin
@@ -129,7 +129,7 @@ begin
     Result := Obj.ReturnType^.Name;
   Result := Result + ';';
   case Obj.CallingConvention of
-    ccRegister: ;// Default
+    ccReg: ;// Default
     ccCdecl: c := 'cdecl';
     ccPascal: c := 'pascal';
     ccStdCall: c := 'stdcall';
@@ -169,7 +169,7 @@ var
   header: PMethodInfoHeader;
 begin
 //  Result := nil;
-  header := ObjAuto.GetMethodInfo( Obj, MethodName );
+  header := GetMethodInfo( Obj, MethodName );
   if header = nil then
     raise Exception.CreateFmt('There is no method %s in fixture %s', [MethodName, Obj.ClassName]);  
   // Check the length is greater than just that of the name

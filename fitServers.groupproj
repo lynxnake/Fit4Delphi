@@ -1,0 +1,120 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{CA782562-144C-4A2F-A226-1E4F220B0684}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="fit\fit.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="eg\exampleFixture1.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="eg\addFixture1.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="eg\music\eg_music.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="fitServer\DelphiFitServer.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="dunit\FitDTests.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="fitrunner\DelphiFitRunner.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="testrunner\DelphiTestRunner.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="fit">
+        <MSBuild Projects="fit\fit.dproj"/>
+    </Target>
+    <Target Name="fit:Clean">
+        <MSBuild Projects="fit\fit.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="fit:Make">
+        <MSBuild Projects="fit\fit.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="exampleFixture1">
+        <MSBuild Projects="eg\exampleFixture1.dproj"/>
+    </Target>
+    <Target Name="exampleFixture1:Clean">
+        <MSBuild Projects="eg\exampleFixture1.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="exampleFixture1:Make">
+        <MSBuild Projects="eg\exampleFixture1.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="addFixture1">
+        <MSBuild Projects="eg\addFixture1.dproj"/>
+    </Target>
+    <Target Name="addFixture1:Clean">
+        <MSBuild Projects="eg\addFixture1.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="addFixture1:Make">
+        <MSBuild Projects="eg\addFixture1.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="eg_music">
+        <MSBuild Projects="eg\music\eg_music.dproj"/>
+    </Target>
+    <Target Name="eg_music:Clean">
+        <MSBuild Projects="eg\music\eg_music.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="eg_music:Make">
+        <MSBuild Projects="eg\music\eg_music.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="DelphiFitServer">
+        <MSBuild Projects="fitServer\DelphiFitServer.dproj"/>
+    </Target>
+    <Target Name="DelphiFitServer:Clean">
+        <MSBuild Projects="fitServer\DelphiFitServer.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="DelphiFitServer:Make">
+        <MSBuild Projects="fitServer\DelphiFitServer.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="FitDTests">
+        <MSBuild Projects="dunit\FitDTests.dproj"/>
+    </Target>
+    <Target Name="FitDTests:Clean">
+        <MSBuild Projects="dunit\FitDTests.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="FitDTests:Make">
+        <MSBuild Projects="dunit\FitDTests.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="DelphiFitRunner">
+        <MSBuild Projects="fitrunner\DelphiFitRunner.dproj"/>
+    </Target>
+    <Target Name="DelphiFitRunner:Clean">
+        <MSBuild Projects="fitrunner\DelphiFitRunner.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="DelphiFitRunner:Make">
+        <MSBuild Projects="fitrunner\DelphiFitRunner.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="DelphiTestRunner">
+        <MSBuild Projects="testrunner\DelphiTestRunner.dproj"/>
+    </Target>
+    <Target Name="DelphiTestRunner:Clean">
+        <MSBuild Projects="testrunner\DelphiTestRunner.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="DelphiTestRunner:Make">
+        <MSBuild Projects="testrunner\DelphiTestRunner.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="fit;exampleFixture1;addFixture1;eg_music;DelphiFitServer;FitDTests;DelphiFitRunner;DelphiTestRunner"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="fit:Clean;exampleFixture1:Clean;addFixture1:Clean;eg_music:Clean;DelphiFitServer:Clean;FitDTests:Clean;DelphiFitRunner:Clean;DelphiTestRunner:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="fit:Make;exampleFixture1:Make;addFixture1:Make;eg_music:Make;DelphiFitServer:Make;FitDTests:Make;DelphiFitRunner:Make;DelphiTestRunner:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

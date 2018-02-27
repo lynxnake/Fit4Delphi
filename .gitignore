@@ -1,0 +1,6 @@
+*.local
+*.stat
+*.~*
+/bin
+dcu
+__history

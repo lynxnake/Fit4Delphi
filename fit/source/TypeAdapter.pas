@@ -73,7 +73,8 @@ const
   TTypeKindNames : array[TTypeKind] of string = (
     'Unknown', 'Integer', 'Char', 'Boolean/Enumeration', 'Float',
     'String', 'Set', 'Class', 'Method', 'WChar', 'LString', 'WString',
-    'Variant', 'Array', 'Record', 'Interface', 'Int64', 'DynArray');
+    'Variant', 'Array', 'Record', 'Interface', 'Int64', 'DynArray', 'UString',
+    'ClassRef', 'Pointer', 'Procedure');
 
 implementation
 

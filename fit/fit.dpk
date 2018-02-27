@@ -1,6 +1,7 @@
 package fit;
 
 {$R *.res}
+{$IFDEF IMPLICITBUILDING This IFDEF should not be used by users}
 {$ALIGN 8}
 {$ASSERTIONS ON}
 {$BOOLEVAL OFF}
@@ -11,34 +12,35 @@ package fit;
 {$LOCALSYMBOLS ON}
 {$LONGSTRINGS ON}
 {$OPENSTRINGS ON}
-{$OPTIMIZATION ON}
+{$OPTIMIZATION OFF}
 {$OVERFLOWCHECKS OFF}
 {$RANGECHECKS OFF}
 {$REFERENCEINFO ON}
 {$SAFEDIVIDE OFF}
-{$STACKFRAMES OFF}
+{$STACKFRAMES ON}
 {$TYPEDADDRESS OFF}
 {$VARSTRINGCHECKS ON}
 {$WRITEABLECONST OFF}
 {$MINENUMSIZE 1}
 {$IMAGEBASE $400000}
+{$DEFINE DEBUG}
+{$ENDIF IMPLICITBUILDING}
 {$IMPLICITBUILD OFF}
-{%TogetherDiagram 'ModelSupport_fit\default.txaPackage'}
 
 requires
   rtl;
 
 contains
-  IdSysVCL,
+//  IdSysVCL,
   IdStreamVCL,
-  IdSysNativeVCL,
-  IdSysBase,
-  IdObjs,
+//  IdSysNativeVCL,
+//  IdSysBase,
+//  IdObjs,
   IdStream,
-  IdSys,
+//  IdSys,
   IdException,
   IdResourceStrings,
-  IdSysWin32,
+//  IdSysWin32,
   IdGlobal,
   ColumnFixture in 'source\ColumnFixture.pas',
   FileRunner in 'source\FileRunner.pas',
